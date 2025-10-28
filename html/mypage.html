@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마이페이지 - ROOTI</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="icon" type="image/png" href="../asset/logo.png" />
+  </head>
+  <body class="app-body">
+    <div class="app-shell mypage-shell">
+      <header class="mypage-header" role="banner">
+        <button
+          type="button"
+          class="mypage-avatar"
+          aria-label="프로필 사진 추가 또는 변경"
+          data-has-photo="false"
+        >
+          <span class="mypage-avatar__hint">사진 추가</span>
+        </button>
+        <div class="mypage-header__info">
+          <p class="mypage-header__welcome">오늘도 꾸준하게!</p>
+          <h1 class="mypage-header__name">홍길동 님</h1>
+          <p class="mypage-header__meta">AI 공부 플래너와 함께한 128일</p>
+          <button type="button" class="mypage-header__edit">프로필 관리</button>
+        </div>
+      </header>
+
+      <main class="mypage-main">
+        <section class="mypage-section" aria-labelledby="routineSummaryTitle">
+          <div class="mypage-section__header">
+            <div>
+              <h2 id="routineSummaryTitle">루틴 달성 요약</h2>
+              <p class="mypage-section__description">
+                이번 주와 이번 달의 학습 루틴 달성률을 한눈에 확인하세요.
+              </p>
+            </div>
+            <a class="mypage-section__link" href="#charts">상세 그래프 보기</a>
+          </div>
+
+          <div class="mypage-summary">
+            <article class="mypage-summary__card">
+              <header class="mypage-summary__header">
+                <h3>주간 달성률</h3>
+                <span class="mypage-summary__target">목표 10회</span>
+              </header>
+              <div class="mypage-summary__meter">
+                <div class="mypage-progress mypage-progress--circular" style="--progress: 82">
+                  <span class="mypage-progress__value">82%</span>
+                </div>
+                <ul class="mypage-summary__list">
+                  <li><strong>9회</strong> 완료 / 2회 남음</li>
+                  <li>집중 타이머 평균 <strong>52분</strong></li>
+                  <li>휴식 비율 <strong>18%</strong></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="mypage-summary__card">
+              <header class="mypage-summary__header">
+                <h3>월간 달성률</h3>
+                <span class="mypage-summary__target">4주 누적</span>
+              </header>
+              <div class="mypage-summary__meter">
+                <div class="mypage-progress mypage-progress--circular mypage-progress--accent" style="--progress: 74">
+                  <span class="mypage-progress__value">74%</span>
+                </div>
+                <ul class="mypage-summary__list">
+                  <li>총 학습 시간 <strong>128시간</strong></li>
+                  <li>루틴 완성 <strong>23회</strong></li>
+                  <li>휴식 루틴 <strong>균형 양호</strong></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="mypage-summary__card mypage-summary__card--highlight">
+              <header class="mypage-summary__header">
+                <h3>연속 달성</h3>
+                <span class="mypage-chip mypage-chip--success">+2</span>
+              </header>
+              <p class="mypage-summary__highlight">현재 <strong>7일</strong> 연속 루틴 유지 중이에요.</p>
+              <div class="mypage-progress mypage-progress--linear" style="--progress: 68%">
+                <span class="sr-only">연속 달성률 68%</span>
+              </div>
+              <p class="mypage-summary__footnote">다음 목표까지 3일 남았어요!</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="charts" class="mypage-section" aria-labelledby="weeklyChartTitle">
+          <div class="mypage-section__header">
+            <div>
+              <h2 id="weeklyChartTitle">루틴 진행 그래프</h2>
+              <p class="mypage-section__description">
+                주간 루틴 달성률과 월간 집중 시간을 비교해서 학습 패턴을 확인하세요.
+              </p>
+            </div>
+            <button type="button" class="mypage-section__link mypage-section__link--button">CSV 내보내기</button>
+          </div>
+
+          <div class="mypage-charts">
+            <article class="mypage-chart" aria-labelledby="weeklyCompletionTitle">
+              <header class="mypage-chart__header">
+                <h3 id="weeklyCompletionTitle">주간 루틴 달성률</h3>
+                <span class="mypage-chip">이번 주 평균 79%</span>
+              </header>
+              <div class="mypage-bars" role="img" aria-label="요일별 루틴 달성률">
+                <div class="mypage-bars__item" aria-label="월요일 달성률 92%">
+                  <span class="mypage-bars__value">92%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 92%"></span>
+                  <span class="mypage-bars__label">월</span>
+                </div>
+                <div class="mypage-bars__item" aria-label="화요일 달성률 84%">
+                  <span class="mypage-bars__value">84%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 84%"></span>
+                  <span class="mypage-bars__label">화</span>
+                </div>
+                <div class="mypage-bars__item" aria-label="수요일 달성률 76%">
+                  <span class="mypage-bars__value">76%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 76%"></span>
+                  <span class="mypage-bars__label">수</span>
+                </div>
+                <div class="mypage-bars__item" aria-label="목요일 달성률 88%">
+                  <span class="mypage-bars__value">88%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 88%"></span>
+                  <span class="mypage-bars__label">목</span>
+                </div>
+                <div class="mypage-bars__item" aria-label="금요일 달성률 64%">
+                  <span class="mypage-bars__value">64%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 64%"></span>
+                  <span class="mypage-bars__label">금</span>
+                </div>
+                <div class="mypage-bars__item" aria-label="토요일 달성률 72%">
+                  <span class="mypage-bars__value">72%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 72%"></span>
+                  <span class="mypage-bars__label">토</span>
+                </div>
+                <div class="mypage-bars__item" aria-label="일요일 달성률 54%">
+                  <span class="mypage-bars__value">54%</span>
+                  <span class="mypage-bars__bar" style="--bar-height: 54%"></span>
+                  <span class="mypage-bars__label">일</span>
+                </div>
+              </div>
+              <p class="mypage-chart__footnote">주간 목표 80% 달성까지 평균 6% 향상이 필요해요.</p>
+            </article>
+
+            <article class="mypage-chart" aria-labelledby="monthlyFocusTitle">
+              <header class="mypage-chart__header">
+                <h3 id="monthlyFocusTitle">월간 집중 시간</h3>
+                <span class="mypage-chip mypage-chip--accent">누적 128시간</span>
+              </header>
+              <figure class="mypage-line">
+                <svg
+                  class="mypage-line__svg"
+                  viewBox="0 0 320 160"
+                  role="img"
+                  aria-labelledby="monthlyFocusTitle monthlyFocusDesc"
+                >
+                  <title id="monthlyFocusDesc">주차별 집중 시간 추이</title>
+                  <defs>
+                    <linearGradient id="focusGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(37, 99, 235, 0.32)" />
+                      <stop offset="100%" stop-color="rgba(37, 99, 235, 0)" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M16 128 L64 110 L112 92 L160 80 L208 74 L256 66 L304 52"
+                    fill="none"
+                    stroke="#2563eb"
+                    stroke-width="6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M16 128 L64 110 L112 92 L160 80 L208 74 L256 66 L304 52 L304 152 L16 152 Z"
+                    fill="url(#focusGradient)"
+                  ></path>
+                  <g class="mypage-line__points">
+                    <circle cx="16" cy="128" r="6"></circle>
+                    <circle cx="64" cy="110" r="6"></circle>
+                    <circle cx="112" cy="92" r="6"></circle>
+                    <circle cx="160" cy="80" r="6"></circle>
+                    <circle cx="208" cy="74" r="6"></circle>
+                    <circle cx="256" cy="66" r="6"></circle>
+                    <circle cx="304" cy="52" r="6"></circle>
+                  </g>
+                </svg>
+                <figcaption class="mypage-line__caption">
+                  지난달 대비 집중 시간이 <strong>+12%</strong> 증가했습니다.
+                </figcaption>
+              </figure>
+              <p class="mypage-chart__footnote">
+                그래프는 주차별 학습 시간 데이터를 기반으로 표시됩니다. 데이터 연결 시 자동으로 갱신돼요.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="mypage-section" aria-labelledby="accountTitle">
+          <div class="mypage-section__header">
+            <div>
+              <h2 id="accountTitle">계정 관리</h2>
+              <p class="mypage-section__description">
+                계정 보안과 개인정보를 안전하게 관리할 수 있어요.
+              </p>
+            </div>
+          </div>
+          <div class="mypage-actions">
+            <button type="button" class="mypage-actions__logout">로그아웃</button>
+            <button type="button" class="mypage-actions__delete">회원탈퇴</button>
+            <p class="mypage-actions__footnote">
+              회원탈퇴 시 학습 기록과 루틴 데이터가 모두 삭제되며 복구할 수 없습니다.
+            </p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

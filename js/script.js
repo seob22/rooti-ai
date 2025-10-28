@@ -9,12 +9,27 @@ const logBtn = document.getElementById('logBtn');
 const timerDisplay = document.querySelector('.timer__display');
 const logList = document.getElementById('logList');
 const appLogo = document.getElementById('appLogo');
+const footerProfileBadge = document.getElementById('footerProfileBadge');
 
 const LOGO_PATH = '../asset/logo.png';
 
 if (appLogo) {
   appLogo.src = LOGO_PATH;
   appLogo.alt = 'ROOTI 로고';
+}
+
+if (footerProfileBadge) {
+  const navigateToMyPage = () => {
+    window.location.href = './mypage.html';
+  };
+
+  footerProfileBadge.addEventListener('click', navigateToMyPage);
+  footerProfileBadge.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      navigateToMyPage();
+    }
+  });
 }
 
 const routineForm = document.getElementById('routineForm');

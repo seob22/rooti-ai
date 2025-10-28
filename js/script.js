@@ -8,6 +8,14 @@ const resetBtn = document.getElementById('resetBtn');
 const logBtn = document.getElementById('logBtn');
 const timerDisplay = document.querySelector('.timer__display');
 const logList = document.getElementById('logList');
+const appLogo = document.getElementById('appLogo');
+
+const LOGO_PATH = '../asset/logo.png';
+
+if (appLogo) {
+  appLogo.src = LOGO_PATH;
+  appLogo.alt = 'ROOTI 로고';
+}
 
 const routineForm = document.getElementById('routineForm');
 const segmentTypeSelect = document.getElementById('segmentType');

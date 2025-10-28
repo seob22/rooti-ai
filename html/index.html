@@ -10,6 +10,15 @@
   <body class="app-body">
     <div class="app-shell">
       <header class="app-header">
+        <img
+          id="appLogo"
+          class="app-header__logo"
+          src="../asset/logo.png"
+          alt="ROOTI 로고"
+          width="96"
+          height="96"
+          loading="lazy"
+        />
         <span class="app-header__badge" aria-hidden="true">나의 루틴</span>
         <h1>AI 서비스 자동화 학습 플래너</h1>
         <p>
@@ -31,6 +40,7 @@
         <section class="timer" aria-labelledby="timer-title">
           <h2 id="timer-title">집중 타이머</h2>
           <div class="timer__display" aria-live="polite">00:00:00</div>
+
           <section class="routine" aria-labelledby="routine-title">
             <h3 id="routine-title">루틴 설정</h3>
             <p class="routine__hint">
@@ -65,38 +75,63 @@
             <div class="routine__actions">
               <button id="clearRoutineBtn" type="button" class="routine__clear">루틴 비우기</button>
             </div>
-            <button type="submit" class="routine__add">구간 추가</button>
-          </form>
-          <div class="routine__status" aria-live="polite">
-            <span class="routine__status-label">현재 구간</span>
-            <span id="currentSegmentLabel">루틴이 설정되어 있지 않습니다.</span>
-          </div>
-          <ul id="routineList" class="routine__list" aria-live="polite"></ul>
-          <div class="routine__actions">
-            <button id="clearRoutineBtn" type="button" class="routine__clear">루틴 비우기</button>
+          </section>
 
-    <footer class="app-footer">
-      <p>꾸준함은 최고의 인공지능입니다.</p>
-    </footer>
-  </div>
+          <div class="timer__controls">
+            <button id="startPauseBtn" class="primary">시작</button>
+            <button id="resetBtn">리셋</button>
+            <button id="logBtn">기록</button>
+          </div>
+
+          <section class="timer__log" aria-labelledby="log-title">
+            <h3 id="log-title">공부 기록</h3>
+            <ul id="logList" aria-live="polite" aria-relevant="additions"></ul>
+          </section>
+        </section>
+      </main>
+
       <footer class="app-footer">
         <nav class="app-footer__nav" aria-label="주요 기능 요약">
           <article class="app-footer__feature">
-            <h3 class="app-footer__feature-title">루틴</h3>
+            <div class="app-footer__icon app-footer__icon--routine" aria-hidden="true">
+              <span class="app-footer__icon-emoji" role="img" aria-hidden="true">📝</span>
+            </div>
+            <div class="app-footer__feature-copy">
+              <p class="app-footer__feature-desc">
+              </p>
+            </div>
           </article>
           <article class="app-footer__feature">
-            <h3 class="app-footer__feature-title">타이머</h3>
+            <div class="app-footer__icon app-footer__icon--timer" aria-hidden="true">
+              <span class="app-footer__icon-emoji" role="img" aria-hidden="true">⏱️</span>
+            </div>
+            <div class="app-footer__feature-copy">
+            </div>
           </article>
           <article class="app-footer__feature">
-            <h3 class="app-footer__feature-title">캘린더</h3>
+            <div class="app-footer__icon app-footer__icon--calendar" aria-hidden="true">
+              <span class="app-footer__icon-emoji" role="img" aria-hidden="true">📅</span>
+            </div>
+            <div class="app-footer__feature-copy">
+            </div>
           </article>
           <article class="app-footer__feature">
-            <h3 class="app-footer__feature-title">마이페이지</h3>
+            <div
+              id="footerProfileBadge"
+              class="app-footer__icon app-footer__icon--profile"
+              data-photo="false"
+              aria-hidden="true"
+            >
+              <span class="app-footer__icon-emoji" role="img" aria-hidden="true">🙂</span>
+            </div>
+            <div class="app-footer__feature-copy">
+            </div>
           </article>
         </nav>
         <p class="app-footer__note">꾸준함은 최고의 인공지능입니다.</p>
       </footer>
     </div>
+
     <div
       id="pauseOverlay"
       class="pause-overlay hidden"
@@ -129,6 +164,7 @@
         <button type="button" id="closePauseModal" class="pause-modal__close">닫기</button>
       </div>
     </div>
+
     <script src="../js/script.js"></script>
   </body>
 </html>

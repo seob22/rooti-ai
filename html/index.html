@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI 공부 플래너</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="app-body">
+  <div class="app-shell">
+    <header class="app-header">
+      <span class="app-header__badge" aria-hidden="true">나의 루틴</span>
+      <h1>AI 서비스 자동화 학습 플래너</h1>
+      <p>캘린더와 타이머로 꾸준한 학습 습관을 만들어보세요.</p>
+    </header>
+
+    <main class="app-layout">
+      <section class="calendar" aria-labelledby="calendar-title">
+        <div class="calendar__header">
+          <button id="prevMonth" class="calendar__nav" aria-label="이전 달">◀</button>
+          <h2 id="calendar-title"></h2>
+          <button id="nextMonth" class="calendar__nav" aria-label="다음 달">▶</button>
+        </div>
+        <div class="calendar__grid" role="grid" aria-live="polite"></div>
+        <p class="calendar__hint">공부한 날에는 타이머 기록을 달력에 메모해보세요!</p>
+      </section>
+
+      <section class="timer" aria-labelledby="timer-title">
+        <h2 id="timer-title">집중 타이머</h2>
+        <div class="timer__display" aria-live="polite">00:00:00</div>
+        <section class="routine" aria-labelledby="routine-title">
+          <h3 id="routine-title">루틴 설정</h3>
+          <p class="routine__hint">공부와 휴식 시간을 순서대로 추가해 나만의 루틴을 만들어보세요.</p>
+          <form id="routineForm" class="routine__form">
+            <div class="routine__field">
+              <label for="segmentType">구간 종류</label>
+              <select id="segmentType">
+                <option value="study">공부</option>
+                <option value="break">휴식</option>
+              </select>
+            </div>
+            <div class="routine__field">
+              <label for="segmentMinutes">시간 (분)</label>
+              <input
+                type="number"
+                id="segmentMinutes"
+                min="1"
+                max="180"
+                value="50"
+                required
+              />
+            </div>
+            <button type="submit" class="routine__add">구간 추가</button>
+          </form>
+          <div class="routine__status" aria-live="polite">
+            <span class="routine__status-label">현재 구간</span>
+            <span id="currentSegmentLabel">루틴이 설정되어 있지 않습니다.</span>
+          </div>
+          <ul id="routineList" class="routine__list" aria-live="polite"></ul>
+          <div class="routine__actions">
+            <button id="clearRoutineBtn" type="button" class="routine__clear">루틴 비우기</button>
+          </div>
+        </section>
+        <div class="timer__controls">
+          <button id="startPauseBtn" class="primary">시작</button>
+          <button id="resetBtn">리셋</button>
+          <button id="logBtn">기록</button>
+        </div>
+        <section class="timer__log" aria-labelledby="log-title">
+          <h3 id="log-title">공부 기록</h3>
+          <ul id="logList" aria-live="polite" aria-relevant="additions"></ul>
+        </section>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>꾸준함은 최고의 인공지능입니다.</p>
+    </footer>
+  </div>
+
+  <div
+    id="pauseOverlay"
+    class="pause-overlay hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pauseTitle"
+  >
+    <div class="pause-modal">
+      <h3 id="pauseTitle">잠시 쉬는 이유를 선택해주세요</h3>
+      <p class="pause-modal__description">선택한 카테고리는 기록에 남습니다.</p>
+      <div class="pause-modal__options">
+        <button type="button" class="pause-option" data-category="점심">점심</button>
+        <button type="button" class="pause-option" data-category="저녁">저녁</button>
+        <button type="button" class="pause-option" data-category="간식">간식</button>
+        <button type="button" class="pause-option" data-category="산책">산책</button>
+        <button type="button" class="pause-option" data-category="휴식">휴식</button>
+      </div>
+      <form id="customPauseForm" class="pause-modal__custom">
+        <label for="customPauseInput">직접 입력</label>
+        <div class="pause-modal__custom-row">
+          <input
+            type="text"
+            id="customPauseInput"
+            placeholder="예: 운동, 전화"
+            maxlength="20"
+          />
+          <button type="submit">기록</button>
+        </div>
+      </form>
+      <button type="button" id="closePauseModal" class="pause-modal__close">닫기</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
